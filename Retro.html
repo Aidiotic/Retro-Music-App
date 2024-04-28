@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retro Music App</title>
+    <style>
+        body {
+            background-color: #2C2C2C; /* Dark mode background */
+            color: #E5E5E5; /* Light text on dark background */
+            font-family: 'Courier New', Courier, monospace; /* Retro font */
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            border-top: 1px solid #4B4B4B; /* Retro divider */
+        }
+        .embed-container {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function addSpotifyEmbed() {
+            var songTitle = document.getElementById("spotifyTitleInput").value;
+            var embedCode = document.getElementById("spotifyEmbedInput").value;
+
+            if (songTitle.trim() !== '' && embedCode.trim() !== '') { // Ensure there's content to add
+                var newEmbedSection = document.createElement("div");
+
+                // Create and add the title
+                var newTitle = document.createElement("h3");
+                newTitle.textContent = songTitle;
+                newEmbedSection.appendChild(newTitle);
+
+                // Create and add the Spotify embed
+                var newEmbed = document.createElement("div");
+                newEmbed.innerHTML = embedCode;
+                newEmbedSection.appendChild(newEmbed);
+
+                document.getElementById("additionalEmbeds").appendChild(newEmbedSection);
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Retro Music App</h1>
+        <p>Your all-in-one music experience with a retro twist!</p>
+    </header>
+
+    <h2>Earthworm Sally</h2>
+    <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/4lUlTl61T4IjHN3ZF3EMU6?utm_source=generator"
+        width="100%" height="352"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+    </iframe>
+
+    <h2>Earthworm Sally (Full Version + Speed Up Edition)</h2>
+    <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/6qYOyjf8FtEeiUAHGqlWxo?utm_source=generator"
+        width="100%" height="352"
+        frameborder="0"
+        allowfullscreen 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+    </iframe>
+
+    <div class="embed-container">
+        <h3>Want More Songs? Add Your Own!</h3>
+        <p>Enter the song title and Spotify embed code below, then click "Add" to see it on the website.</p>
+        <input type="text" id="spotifyTitleInput" placeholder="Song title">
+        <input type="text" id="spotifyEmbedInput" placeholder="Spotify embed code">
+        <button onclick="addSpotifyEmbed()">Add</button>
+        <div id="additionalEmbeds"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Retro Music App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
