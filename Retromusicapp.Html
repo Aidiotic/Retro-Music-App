@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retro Music App - Add Songs</title>
+    <style>
+        body {
+            background-color: #2C2C2C; /* Dark mode background */
+            color: #E5E5E5; /* Light text on dark background */
+            font-family: 'Courier New', Courier, monospace; /* Retro font */
+            padding: 20px;
+        }
+        .embed-container {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function addSpotifyEmbed() {
+            var songTitle = document.getElementById("spotifyTitleInput").value;
+            var embedCode = document.getElementById("spotifyEmbedInput").value;
+
+            if (songTitle.trim() !== '' && embedCode.trim() !== '') { // Ensure there's content to add
+                var newEmbedSection = document.createElement("div");
+
+                // Create and add the title
+                var newTitle = document.createElement("h3");
+                newTitle.textContent = songTitle;
+                newEmbedSection.appendChild(newTitle);
+
+                // Create and add the Spotify embed
+                var newEmbed = document.createElement("div");
+                newEmbed.innerHTML = embedCode;
+                newEmbedSection.appendChild(newEmbed);
+
+                document.getElementById("additionalEmbeds").appendChild(newEmbedSection);
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Add Your Spotify Songs</h1>
+        <p>Enter the song title and Spotify embed code below, then click "Add" to see it on the website.</p>
+    </header>
+
+    <div class="embed-container">
+        <input type="text" id="spotifyTitleInput" placeholder="Song title">
+        <input type="text" id="spotifyEmbedInput" placeholder="Spotify embed code">
+        <button onclick="addSpotifyEmbed()">Add</button>
+        <div id="additionalEmbeds"></div>
+    </div>
+</body>
+</html>
